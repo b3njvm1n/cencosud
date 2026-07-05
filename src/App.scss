@@ -1,0 +1,40 @@
+// src/App.scss
+@import './styles/variables';
+@import './styles/mixins';
+
+.app {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  min-height: 100vh;
+}
+
+.menu-nav {
+  grid-area: header;
+}
+
+.app-main {
+  grid-area: main;
+  padding: 24px;
+  background: #f0f4f8;
+}
+
+.app-footer {
+  grid-area: footer;
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border-top: 1px solid #e2e8f0;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+// Media queries
+@media (max-width: $breakpoint-mobile) {
+  .app-main {
+    padding: 16px;
+  }
+}

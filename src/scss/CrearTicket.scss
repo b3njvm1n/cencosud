@@ -1,0 +1,470 @@
+// src/scss/CrearTicket.scss
+
+// Variables de color (azul Cencosud)
+$primary-color: #0033A0;
+$primary-dark: #00227B;
+$text-on-primary: #FFFFFF;
+$text-light: #E0E7F0;
+$input-border: #4A6FA5;
+
+/* ============================================
+   PÁGINA GENERAL
+   ============================================ */
+.crear-ticket-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8fafc;
+}
+
+/* ============================================
+   HEADER FIJO
+   ============================================ */
+.crear-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: $primary-color;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: $text-on-primary;
+  font-weight: 600;
+  font-size: 1.2rem;
+  .logo-img {
+    height: 36px;
+    width: auto;
+    display: block;
+  }
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  a {
+    color: $text-on-primary;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;
+    opacity: 0.85;
+    &:hover {
+      opacity: 1;
+      color: darken($text-on-primary, 10%);
+    }
+  }
+  .btn-login {
+    background: rgba(255,255,255,0.95);
+    color: $primary-color;
+    padding: 6px 16px;
+    border-radius: 40px;
+    font-weight: 600;
+    &:hover {
+      background: white;
+      transform: scale(1.02);
+      color: $primary-dark;
+    }
+  }
+}
+
+/* ============================================
+   CONTENIDO CENTRAL
+   ============================================ */
+.crear-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px 100px;
+  width: 100%;
+}
+
+.crear-container {
+  max-width: 780px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* ============================================
+   TARJETA (azul Cencosud)
+   ============================================ */
+.crear-card {
+  background-color: $primary-color;
+  border-radius: 48px;
+  padding: 48px 40px;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+  animation: fadeInUp 0.6s ease-out;
+
+  h1 {
+    font-size: 2rem;
+    color: $text-on-primary !important;
+    margin-bottom: 8px;
+    text-align: center;
+    i {
+      margin-right: 10px;
+    }
+  }
+
+  // Ambas clases por si usas una u otra
+  .subtitle,
+  .subtitulo {
+    color: $text-light;
+    font-size: 0.95rem;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+}
+
+.cencosud-logo {
+  margin-bottom: 20px;
+  text-align: center;
+  img {
+    max-height: 60px;
+    width: auto;
+    display: inline-block;
+  }
+}
+
+/* ============================================
+   FORMULARIO
+   ============================================ */
+.form-ticket {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Grid de campos (2 columnas) */
+.campos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 32px;
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.campo-full {
+  grid-column: span 2;
+
+  @media (max-width: 700px) {
+    grid-column: span 1;
+  }
+}
+
+/* Cada campo */
+.campo {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Asegura que ocupe toda la celda */
+  box-sizing: border-box;
+
+  &.requerido label::after {
+    content: " *";
+    color: #ef4444;
+  }
+
+  label {
+    font-weight: 600;
+    color: $text-on-primary !important;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+
+    i {
+      color: $text-light;
+      width: 20px;
+    }
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid $input-border;
+    border-radius: 20px;
+    font-size: 1rem;
+    background: white;
+    color: #0f172a;
+    transition: 0.2s;
+    font-family: inherit;
+    box-sizing: border-box; /* Evita desbordes por padding */
+
+    &:focus {
+      outline: none;
+      border-color: $text-on-primary;
+      box-shadow: 0 0 0 4px rgba(255,255,255,0.2);
+    }
+
+    &::placeholder {
+      color: #94a3b8;
+    }
+  }
+
+  select {
+    appearance: auto;
+    cursor: pointer;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  small {
+    margin-top: 6px;
+    color: $text-light;
+    font-size: 0.75rem;
+  }
+}
+
+/* Campo de evidencia (fondo ligeramente más claro) */
+.campo-evidencia {
+  background: rgba(255,255,255,0.1);
+  border-radius: 28px;
+  padding: 16px 20px;
+  margin-top: 8px;
+  width: 100%;
+  box-sizing: border-box;
+
+  label {
+    color: $text-on-primary !important;
+  }
+
+  input[type="file"] {
+    padding: 10px 0;
+    border: none;
+    background: transparent;
+    color: $text-light;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* ============================================
+   BOTONES DE ACCIÓN
+   ============================================ */
+.acciones-form {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  margin-top: 8px;
+  flex-wrap: wrap;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
+}
+
+.btn-guardar,
+.btn-cancelar {
+  padding: 14px 32px;
+  border-radius: 60px;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+
+  @media (max-width: 480px) {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.btn-guardar {
+  background: #ffffff;
+  color: $primary-color;
+  &:hover {
+    background: #f1f5f9;
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px -5px rgba(0,0,0,0.3);
+    color: $primary-dark;
+  }
+}
+
+.btn-cancelar {
+  background: rgba(255,255,255,0.15);
+  color: $text-light;
+  border: 1px solid rgba(255,255,255,0.3);
+  &:hover {
+    background: rgba(255,255,255,0.25);
+    color: $text-on-primary;
+  }
+}
+
+/* ============================================
+   MENSAJES Y BOLETA
+   ============================================ */
+.mensaje {
+  margin-top: 24px;
+  padding: 16px 20px;
+  border-radius: 20px;
+  text-align: center;
+
+  &.error {
+    background-color: #fee2e2;
+    border: 1px solid #ef4444;
+    color: #991b1b;
+  }
+
+  &.exito {
+    background-color: #d1fae5;
+    border: 1px solid #10b981;
+    color: #065f46;
+    text-align: left;
+
+    p:first-child {
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .boleta-detalle {
+      margin-top: 12px;
+      padding-top: 16px;
+      border-top: 1px dashed #10b981;
+
+      h4 {
+        margin: 0 0 12px 0;
+        color: #065f46;
+        font-size: 1.1rem;
+      }
+
+      p {
+        margin: 6px 0;
+        font-size: 0.9rem;
+        strong {
+          font-weight: 600;
+          color: #0f172a;
+        }
+      }
+
+      .btn-volver-inicio {
+        margin-top: 16px;
+        padding: 10px 24px;
+        background: $primary-color;
+        color: white;
+        border: none;
+        border-radius: 60px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+
+        &:hover {
+          background: $primary-dark;
+          transform: scale(1.02);
+          box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+      }
+    }
+  }
+}
+
+/* ============================================
+   FOOTER FIJO
+   ============================================ */
+.crear-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: $primary-color;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: $text-light;
+  font-size: 0.85rem;
+
+  a {
+    color: $text-on-primary;
+    text-decoration: none;
+    &:hover {
+      color: darken($text-on-primary, 15%);
+    }
+  }
+  .footer-links {
+    display: flex;
+    gap: 16px;
+  }
+}
+
+/* ============================================
+   ANIMACIÓN
+   ============================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 600px) {
+  .crear-header {
+    padding: 10px 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .header-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .crear-content {
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
+  .crear-card {
+    padding: 32px 20px;
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+  .btn-login {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+  }
+  .crear-footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px 16px;
+  }
+  .campos-grid {
+    gap: 16px;
+  }
+}

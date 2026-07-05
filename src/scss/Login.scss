@@ -1,0 +1,313 @@
+// src/scss/Login.scss
+
+// Variables de color (azul Cencosud)
+$primary-color: #0033A0;
+$primary-dark: #00227B;
+$text-on-primary: #FFFFFF;
+$text-light: #E0E7F0;
+$input-border: #4A6FA5;
+
+/* ===== PÁGINA GENERAL ===== */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8fafc; // Fondo neutro claro
+}
+
+/* ===== HEADER FIJO ===== */
+.login-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: $primary-color;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: $text-on-primary;
+  font-weight: 600;
+  font-size: 1.2rem;
+  .logo-img {
+    height: 36px;
+    width: auto;
+    display: block;
+  }
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  a {
+    color: $text-on-primary;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;
+    opacity: 0.85;
+    &:hover {
+      opacity: 1;
+      color: darken($text-on-primary, 10%);
+    }
+  }
+  .btn-login {
+    background: rgba(255,255,255,0.95);
+    color: $primary-color;
+    padding: 6px 16px;
+    border-radius: 40px;
+    font-weight: 600;
+    &:hover {
+      background: white;
+      transform: scale(1.02);
+      color: $primary-dark;
+    }
+  }
+}
+
+/* ===== CONTENIDO CENTRAL ===== */
+.login-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px 100px;
+  width: 100%;
+}
+
+.login-container {
+  max-width: 440px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* ===== TARJETA (azul Cencosud) ===== */
+.login-card {
+  background-color: $primary-color;
+  border-radius: 48px;
+  padding: 48px 36px;
+  text-align: center;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+  animation: fadeInUp 0.5s ease-out;
+
+  h1 {
+    font-size: 1.8rem;
+    color: $text-on-primary !important;
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: 500px) {
+    padding: 32px 24px;
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.cencosud-logo {
+  margin-bottom: 20px;
+  img {
+    max-height: 60px;
+    width: auto;
+    display: inline-block;
+  }
+}
+
+.login-icon {
+  font-size: 4rem;
+  color: $text-on-primary;
+  margin-bottom: 16px;
+}
+
+.login-subtitle {
+  color: $text-light;
+  font-size: 0.95rem;
+  margin-bottom: 32px;
+}
+
+/* ===== FORMULARIO ===== */
+.login-form {
+  text-align: left;
+}
+
+.campo-login {
+  margin-bottom: 24px;
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: $text-on-primary !important;
+    font-size: 0.9rem;
+  }
+
+  input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid $input-border;
+    border-radius: 28px;
+    font-size: 1rem;
+    background: white;
+    color: #0f172a;
+    transition: 0.2s;
+    box-sizing: border-box; // Evita desbordes
+
+    &:focus {
+      outline: none;
+      border-color: $text-on-primary;
+      box-shadow: 0 0 0 4px rgba(255,255,255,0.2);
+    }
+
+    &::placeholder {
+      color: #94a3b8;
+    }
+  }
+}
+
+.btn-login-submit {
+  width: 100%;
+  background: #ffffff;
+  color: $primary-color;
+  border: none;
+  padding: 14px;
+  border-radius: 40px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: 0.2s;
+  margin-top: 8px;
+
+  &:hover {
+    background: #f1f5f9;
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px -5px rgba(0,0,0,0.3);
+    color: $primary-dark;
+  }
+}
+
+.login-ayuda {
+  text-align: center;
+  margin-top: 24px;
+
+  a {
+    color: $text-light;
+    text-decoration: none;
+    font-size: 0.85rem;
+    &:hover {
+      color: $text-on-primary;
+      text-decoration: underline;
+    }
+  }
+}
+
+/* ===== MENSAJE DE ERROR ===== */
+.mensaje-error {
+  margin-top: 20px;
+  padding: 12px 16px;
+  border-radius: 40px;
+  background: #fee2e2;
+  color: #991b1b;
+  font-size: 0.9rem;
+  text-align: center;
+  display: none;
+  border: 1px solid #ef4444;
+
+  &.visible {
+    display: block;
+    animation: shake 0.3s ease;
+  }
+}
+
+/* ===== FOOTER FIJO ===== */
+.login-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: $primary-color;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: $text-light;
+  font-size: 0.85rem;
+
+  a {
+    color: $text-on-primary;
+    text-decoration: none;
+    &:hover {
+      color: darken($text-on-primary, 15%);
+    }
+  }
+  .footer-links {
+    display: flex;
+    gap: 16px;
+  }
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .login-header {
+    padding: 10px 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .header-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .login-content {
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
+  .login-card {
+    padding: 32px 20px;
+  }
+  .btn-login {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+  }
+  .login-footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px 16px;
+  }
+}

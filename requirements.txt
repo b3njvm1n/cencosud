@@ -1,0 +1,17 @@
+# requirements.txt
+# Dependencias del backend TicketZone (Django + DRF)
+
+# Framework principal
+Django==5.2.4
+
+# Django REST Framework para la API REST
+djangorestframework==3.14.0
+
+# Autenticación JWT (tokens de acceso/refresh)
+djangorestframework-simplejwt==5.2.2
+
+# CORS para permitir peticiones desde el frontend (React en Vite)
+django-cors-headers==4.3.1
+
+# (Opcional) Variables de entorno
+python-dotenv==1.0.0

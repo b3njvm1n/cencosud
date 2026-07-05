@@ -1,0 +1,17 @@
+/* src/index.css */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: white;  /* fondo neutro para otras páginas */
+  margin: 0;
+  padding: 0;
+}
+
+/* Asegura que #root no tenga fondo propio */
+#root {
+  background: transparent;
+}

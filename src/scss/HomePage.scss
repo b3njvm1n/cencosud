@@ -1,0 +1,288 @@
+// ============================================================
+// ARCHIVO DE ESTILOS: HomePage.scss
+// Estilos específicos para la página de inicio (HomePage).
+// Utiliza SCSS para organizar variables, componentes, layout, 
+// animaciones y diseño responsive.
+// ============================================================
+
+// ===== VARIABLES DE COLOR =====
+// Paleta corporativa basada en el azul Cencosud (Pantone 286)
+$primary-color: #0033A0;   // Azul Cencosud principal
+$primary-dark: #00227B;    // Azul más oscuro para hover y efectos
+$text-on-primary: #FFFFFF; // Texto blanco sobre fondos azules
+$text-light: #E0E7F0;      // Texto gris claro para descripciones y subtítulos
+
+// ============================================================
+// CONTENEDOR PRINCIPAL DE LA PÁGINA
+// Ocupa toda la altura de la ventana, usa flexbox para organizar
+// el contenido en columna (header - main - footer)
+// ============================================================
+.homepage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8fafc; // Fondo exterior neutro muy claro
+}
+
+// ============================================================
+// HEADER FIJO (barra de navegación superior)
+// Permanece fijo en la parte superior de la pantalla.
+// ============================================================
+.homepage-header {
+  position: fixed;          // Fijo en la ventana
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;             // Por encima de otros elementos
+  background-color: $primary-color;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;          // Permite envolver en pantallas pequeñas
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); // Sombra para dar profundidad
+}
+
+// Área del logo: imagen + nombre de la aplicación
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: $text-on-primary;
+  font-weight: 600;
+  font-size: 1.2rem;
+  .logo-img {
+    height: 36px;
+    width: auto;
+    display: block;
+  }
+}
+
+// Navegación del header: enlaces y botón de login
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  a {
+    color: $text-on-primary;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;       // Transición suave para hover
+    opacity: 0.85;
+    &:hover {
+      opacity: 1;
+      color: darken($text-on-primary, 10%);
+    }
+  }
+  // Botón de inicio de sesión (destacado)
+  .btn-login {
+    background: rgba(255, 255, 255, 0.95);
+    color: $primary-color;
+    padding: 6px 16px;
+    border-radius: 40px;     // Forma de píldora
+    font-weight: 600;
+    &:hover {
+      background: #ffffff;
+      transform: scale(1.02); // Ligero agrandamiento al pasar el mouse
+      color: $primary-dark;
+    }
+  }
+}
+
+// ============================================================
+// CONTENIDO CENTRAL (main)
+// Centra vertical y horizontalmente la tarjeta de bienvenida.
+// ============================================================
+.homepage-content {
+  flex: 1;                  // Ocupa el espacio disponible entre header y footer
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px 100px; // Espacio para header y footer fijos
+  width: 100%;
+}
+
+// Contenedor de la tarjeta: limita el ancho máximo
+.welcome-container {
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+}
+
+// Tarjeta de bienvenida: fondo azul, bordes redondeados, sombra y animación
+.welcome-card {
+  background-color: $primary-color;
+  border-radius: 48px;
+  padding: 48px 32px;
+  text-align: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: fadeInUp 0.6s ease-out; // Animación al cargar
+
+  h1 {
+    font-size: 2rem;
+    color: $text-on-primary !important; // Forzar color blanco
+    margin-bottom: 16px;
+  }
+}
+
+// ===== LOGO DE CENCOSUD =====
+// Se muestra en la parte superior de la tarjeta
+.cencosud-logo {
+  margin-bottom: 20px;
+  img {
+    max-height: 60px;
+    width: auto;
+    display: inline-block;
+  }
+}
+
+// ===== ICONO DECORATIVO =====
+// Utiliza Font Awesome para mostrar un icono grande
+.welcome-icon {
+  font-size: 5rem;
+  color: $text-on-primary;
+  margin-bottom: 24px;
+}
+
+// ===== MENSAJE DE BIENVENIDA =====
+.welcome-message {
+  color: $text-light;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+// ===== BOTÓN PRINCIPAL =====
+// Botón destacado para "Crear reclamo"
+.btn-principal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #ffffff;
+  color: $primary-color;
+  padding: 16px 32px;
+  border-radius: 60px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: 0.2s;
+  margin-bottom: 24px;
+  width: 100%;
+  max-width: 280px;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    background: #f1f5f9;
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+    color: $primary-dark;
+  }
+}
+
+// ===== ENLACES SECUNDARIOS (pie de la tarjeta) =====
+.welcome-footer {
+  color: $text-light;
+  font-size: 0.9rem;
+  a {
+    color: $text-on-primary;
+    text-decoration: none;
+    font-weight: 600;
+    &:hover {
+      text-decoration: underline;
+      color: darken($text-on-primary, 15%);
+    }
+  }
+}
+
+// ============================================================
+// FOOTER FIJO (pie de página)
+// Permanece fijo en la parte inferior de la ventana.
+// ============================================================
+.homepage-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: $primary-color;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: $text-light;
+  font-size: 0.85rem;
+  a {
+    color: $text-on-primary;
+    text-decoration: none;
+    &:hover {
+      color: darken($text-on-primary, 15%);
+    }
+  }
+  .footer-links {
+    display: flex;
+    gap: 16px;
+  }
+}
+
+// ============================================================
+// ANIMACIONES
+// ============================================================
+// Animación de entrada: la tarjeta aparece deslizándose hacia arriba
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ============================================================
+// DISEÑO RESPONSIVE (para pantallas pequeñas)
+// ============================================================
+@media (max-width: 600px) {
+  // Header: se apila verticalmente
+  .homepage-header {
+    padding: 10px 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .header-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  // Ajuste de padding para evitar que el contenido quede oculto
+  .homepage-content {
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
+
+  // Tarjeta: reduce padding y tamaño de título
+  .welcome-card {
+    padding: 32px 24px;
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  // Botón de login más pequeño
+  .btn-login {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+  }
+
+  // Footer: se apila verticalmente y centra el texto
+  .homepage-footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px 16px;
+  }
+}

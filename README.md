@@ -1,25 +1,16 @@
-# cencosud
-diseño web para la empresa de cencosud, para el manejo de tickets y reclamos
-para prueba del diseño con fronted y backend debe de tener como requisitos, python, django, y react
-posteriormente debe de ingresar en la terminal 
+# React + Vite
 
-# Para el backend
-# Crear entorno virtual
-python -m venv venv
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-# Activar en Linux/Mac
-source venv/bin/activate
+Currently, two official plugins are available:
 
-# Activar en Windows
-venv\Scripts\activate
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-pip install -r requirements.txt
+## React Compiler
 
-python manage.py makemigrations
-python manage.py migrate
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-# para el fronted
-npm install
+## Expanding the ESLint configuration
 
-y en el navegador en la barra de busqueda escribir
-http://localhost:5173/
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
