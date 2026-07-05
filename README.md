@@ -135,3 +135,27 @@ Puedes probar los endpoints directamente en el navegador o con Postman:
     Listar tickets (público): http://127.0.0.1:8000/api/tickets/
 
     Obtener token JWT: POST a http://127.0.0.1:8000/api/token/ con {"username": "admin@tienda.cl", "password": "adm123"}
+
+
+Estructura del proyecto
+Raíz del proyecto
+text
+
+ticketzone/
+├── api/                      # Aplicación Django (models, views, serializers, etc.)
+├── backend/                  # Configuración del proyecto Django (settings, urls, wsgi)
+├── registration/             # (Opcional) Módulo de registro de usuarios
+├── src/                      # Código fuente del frontend (React + Vite)
+├── node_modules/             # Dependencias del frontend (ignorado en Git)
+├── venv/                     # Entorno virtual de Python (ignorado en Git)
+├── staticfiles/              # Archivos estáticos recopilados (ignorado en Git)
+├── db.sqlite3                # Base de datos SQLite (ignorado en Git)
+├── manage.py                 # Script de gestión de Django
+├── requirements.txt          # Dependencias del backend
+├── package.json              # Dependencias del frontend
+├── package-lock.json         # Versiones exactas del frontend
+├── vite.config.js            # Configuración de Vite
+├── eslint.config.js          # Configuración de ESLint
+├── index.html                # Plantilla principal del frontend
+├── README.md                 # Este archivo
+└── .env.example              # Ejemplo de variables de entorno
