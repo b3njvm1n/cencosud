@@ -135,3 +135,11 @@ Puedes probar los endpoints directamente en el navegador o con Postman:
     Listar tickets (público): http://127.0.0.1:8000/api/tickets/
 
     Obtener token JWT: POST a http://127.0.0.1:8000/api/token/ con {"username": "admin@tienda.cl", "password": "adm123"}
+
+si llegas a tener problemas con el backend ejecuta los siguientes comandos en la terminal para poder solucionarlos 
+
+pip install setuptools
+pip install --upgrade djangorestframework-simplejwt
+pip install --upgrade setuptools
+pip uninstall djangorestframework-simplejwt -y
+pip install djangorestframework-simplejwt
