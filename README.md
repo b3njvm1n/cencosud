@@ -157,3 +157,4 @@ try:
 except PackageNotFoundError:
     # package is not installed
     __version__ = None
+dejare igual la copia en el repositorio para copiar y pegar
