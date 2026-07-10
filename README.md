@@ -143,3 +143,17 @@ pip install --upgrade djangorestframework-simplejwt
 pip install --upgrade setuptools
 pip uninstall djangorestframework-simplejwt -y
 pip install djangorestframework-simplejwt
+
+o si no modificando el archivo
+/venv/lib/python3.14/site-packages/rest_framework_simplejwt/__init__.py
+
+
+
+
+from importlib.metadata import PackageNotFoundError, version
+
+try:
+    __version__ = version("djangorestframework_simplejwt")
+except PackageNotFoundError:
+    # package is not installed
+    __version__ = None
